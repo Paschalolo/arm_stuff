@@ -14,7 +14,7 @@ _start :
 	mov x2 , #15 // size of strign 
 
 	svc 0 
-
+	add x6 , x6, #10
 	// terminate the function 
 	mov x8 , 0x5d // set syscall to exit 
 	mov x0 , #0 

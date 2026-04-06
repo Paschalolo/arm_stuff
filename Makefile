@@ -9,7 +9,7 @@ vpath %.h include
 
 
 run : link
-	./src/$(FILE)  && rm ./src/$(FILE)
+	./src/$(FILE)  
 runp : link 
 	./src/$(FILE)  
 link : build 

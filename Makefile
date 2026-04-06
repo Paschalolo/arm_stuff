@@ -1,29 +1,23 @@
-MFILE=$(FILE).o
-ASMFILE=$(FILE).S
-# nasm -f elf64 program.asm -o program.o
-COMPILEASM.o = as -f elf64 -g 
+
+ASMFILE=$(FILE).s
+OFILE=$(FILE).o
+DEBUGFLGS= -g
+vpath %.s src 
+vpath %.S src
 vpath %.o src 
-vpath %.S src 
-r : link 
-	./bin/$(FILE) 
-run : link 
-	./bin/$(FILE)
-run2: compilecpp
-	./src/$(FILE) && rm src/$(FILE) && rm src/$(MFILE)
-compilecpp: compile
-	g++-14 src/$(MFILE) src/$(FILE).cpp -o src/$(FILE)
+vpath %.h include 
 
-link :  compile 
-	ld  src/$(MFILE) -o bin/$(FILE)
-compile: $(ASMFILE)
-	$(COMPILEASM.o) $< -o src/$(MFILE) 
-	
-create: 
-	touch  src/$(ASMFILE)
-clean : 
-	rm src/$(FILE) && rm src/$(MFILE)
+
+run : link
+	./src/$(FILE)  && rm ./src/$(FILE)
+runp : link 
+	./src/$(FILE)  
+link : build 
+	ld -o src/$(FILE) src/$(OFILE)
+
+build : $(ASMFILE)
+	as $(DEBUGFLGS) -o ./src/$(OFILE) $< 
+
+
 push : 
-	git add . && git commit -m"ARM ASSEMBLY ------ "
-
-online : 
-	git push origin main 
+	git add . && git commit -m "mesa" && git push origin main

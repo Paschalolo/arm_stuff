@@ -21,3 +21,6 @@ build : $(ASMFILE)
 
 push : 
 	git add . && git commit -m "mesa" && git push origin main
+
+create: 
+	touch src/$(ASMFILE)

@@ -27,7 +27,7 @@ _start:
 	mov w5 , #16 
 
 loop : 
-	and w6 , w4 , 0xf
+	and w6 , w4 , 0xff
 	// if w6 >= 10 gotot letter 
 	cmp w6 , #10 
 	b.ge letter 
@@ -39,10 +39,10 @@ letter :
 	add w6 , w6 , #('A' - 0)
 
 cont : 
-	strb w6 , [x1] // hextsr = str[i]
-	sub x1 , x1 , #1 
-	lsr x4 , x4 , #4 
-	subs w5, w5 , #1 // step th ecounter down by 1 
+	strh w6 , [x1] // hextsr = str[i]
+	sub x1 , x1 , #2 
+	lsr x4 , x4 , #8 
+	subs w5, w5 , #2 // step th ecounter down by 1 
 	b.ne loop  // jump to loop if not full 
 
 	// making sytem call 

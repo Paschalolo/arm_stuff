@@ -12,13 +12,10 @@ snu: .word 0x12345578
 _start : 
 	mov x4 , #0 
 	ldr  x1 , =snu // load address of snu here 
-	ldrb w0 , [x1 , x4 ]
-	add x4 , x4 , #1
-	ldrb w0 , [x1 , x4 ]
-	add x4 , x4 , #1
-	ldrb w0 , [x1 , x4 ]
-	add x4 , x4 , #1
-	ldrb w0 , [x1 , x4 ]
+	ldrb w0 , [x1 ], #1 
+	ldrb w0 , [x1] , #1 
+	ldrb w0 , [x1 ] , #1 
+	ldrb w0 , [x1] , #1 
 
 	// syscall to end 
 

@@ -9,3 +9,7 @@ _start :
 	str q10 , [SP, #-16]!
 	ldr q10 , [SP], #16 
 	ldp q1 , q0  , [SP] , #32
+
+Vector regoster processing 
+D -> 64buit S- 32 bti H- 16bit B - 8 bit 
+i.e v1.4s , v1.2d , v1.8h , v1.16b

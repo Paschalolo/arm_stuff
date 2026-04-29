@@ -9,11 +9,11 @@ vpath %.h include
 
 
 run : link
-	./src/$(FILE)  
+	./bin/$(FILE)  
 runp : link 
 	./src/$(FILE)  
 link : build 
-	ld -o src/$(FILE) src/$(OFILE)
+	ld -o bin/$(FILE) src/$(OFILE)
 
 build : $(ASMFILE)
 	as $(DEBUGFLGS) -o ./src/$(OFILE) $< 

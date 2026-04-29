@@ -1,5 +1,5 @@
 
-ASMFILE=$(FILE).s
+ASMFILE=$(FILE).S
 OFILE=$(FILE).o
 DEBUGFLGS= -g
 vpath %.s src 

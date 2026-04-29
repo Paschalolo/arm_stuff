@@ -18,6 +18,8 @@ link : build
 build : $(ASMFILE)
 	as $(DEBUGFLGS) -o ./src/$(OFILE) $< 
 
+build2 : $(ASMFILE)
+	as $(DEBUGFLGS) -o ./src/$(OFILE) $< 
 
 push : 
 	git add . && git commit -m "mesa" && git push origin main

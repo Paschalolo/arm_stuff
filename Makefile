@@ -28,4 +28,4 @@ push :
 cr:
 	mkdir src/$(MEM)
 create: 
-	touch src/$(MEM)/$(ASMFILE)
+	touch src/$(ASMFILE)

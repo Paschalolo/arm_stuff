@@ -21,7 +21,7 @@ _start :
 	.global getStr 
 getStr : 
 	adrp x0 , ttlStr 
-	add x0 , x0 , :lo12ttlStr: 
+	add x0 , x0 , :lo12:ttlStr // offical address
 	ret // sucesffuly returned the addresss 
 
 	.global asmMain 
@@ -42,4 +42,14 @@ asmMain :
 	ldr x0 , =saveLR
 	ldr lr , [x0]
 	add sp , sp , #256 
-	ret 
+	ret
+
+poti: 
+	ldp x0 ,x1 ,[x4]
+	stp x0, x1 , [x4, #8]
+
+// pushing and popping stack 
+	str x4 , [SP , #-16]!
+	// .... use stack here 
+	ldr x4, [SP] , #16
+	ldr x1 , [sp , #8] 

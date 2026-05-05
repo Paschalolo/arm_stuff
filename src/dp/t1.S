@@ -19,3 +19,20 @@ _start :
 	movk x0	, #0xabcd , lsl , #16 
 	movk x0 , #0xffff
 
+	// unconditoonal lo
+	
+	mov w0 , #0 
+loop : 
+	cmp w0 , #10 
+	b.ge endloop
+	add w0 , w0 , #1 
+	b loop 
+endloop : 
+	ret 
+
+// csel similar to cmov on x86 
+	test x4, #0 
+	csel x4 , x0 , x1 , eq
+
+	// special instructions 
+
